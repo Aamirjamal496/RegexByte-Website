@@ -206,13 +206,10 @@ class LoginController extends Controller
 
     }
     // Update Slider:
+    
     public function UpdateSlider()
     {
         $request = service('request');
-        // $image = $request->GetFile('img');
-        // $saveimage = $image->getName();
-        // $image->move(FCPATH .'uploads', $saveimage);
-
         $id = $request->getPost('id');
         $image = $request->GetFile('img');
         $profile = $image->getName();

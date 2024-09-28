@@ -1,5 +1,4 @@
 <?php
-include "commons/database.php";
 include "commons/detailsHead.php"
 ?>
 
@@ -19,31 +18,6 @@ include "commons/detailsHead.php"
                             <a href="index.php" class="text-white">Home &nbsp; &#187; &nbsp;</a>
                             <a href="index.php" class="text-white">Our Work &nbsp; &#187; &nbsp; </a>
                             <a href="<?=base_url('portfolio');?>" class="text-white">Projects &nbsp; &#187; &nbsp; </a>
-                            <?php
-                            if (isset($_GET['category_id'])) {
-                                $categoryId = $_GET['category_id'];
-                                $sql_1 = "SELECT * FROM job_categories WHERE id = $categoryId";
-                            } else {
-                                $sql_1 = "SELECT * FROM job_categories";
-                            }
-                            $result_1 = mysqli_query($con, $sql_1);
-                            ?>
-                            <?php while ($row_1 = mysqli_fetch_array($result_1)) { ?>
-                            <a href="project_categories.php?id=<?php echo $row_1['id'] ?>"
-                                class="text-white"><?php echo $row_1['title'] ?> &nbsp; &#187; &nbsp;</a>
-                            <?php } ?>
-                            <?php
-                            if (isset($_GET['project_id'])) {
-                                $projectId = $_GET['project_id'];
-                                $sql_project = "SELECT title FROM projects WHERE id = $projectId";
-                                $result_project = mysqli_query($con, $sql_project);
-                                $project = mysqli_fetch_assoc($result_project);
-
-                                if ($project) {
-                                    echo '<a href="" class="text-white">' . $project['title'] . '</a>';
-                                }
-                            }
-                            ?>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,4 @@
-<?php include "commons/database.php";
- include "commons/header.php";
- ?>
+<?php  include "commons/header.php"; ?>
 
 <style>
     .carousel-caption {
@@ -180,7 +178,7 @@
             <div class="container ">
                 <div class="row align-items-center justify-content-center ms-lg-5">
 
-                    <div class="col-md-12">
+                    <div class="col-auto">
 
                         <div class="about-content mt-4 intro">
                             <h6 class="text-uppercase text-brand" data-aos="fade-down" data-aos-duration="3000">
@@ -261,7 +259,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 about-img text-center"  data-aos="fade-left" data-aos-duration="3000">
+                    <div class="col-md-8 about-img text-center"  data-aos="fade-left" data-aos-duration="3000">
                         <img src="./public/Homeassets/img/h8-banner1.png" alt="">
                     </div>
                 </div>
@@ -283,11 +281,6 @@
     </section>
 </div>
 <!-- About Us Section -->
-
-
-
-
-
 
 
 <!-- Why choose us -->
@@ -478,12 +471,6 @@
         </section>
     </div>
 </div>
-
-
-
-
-
-
 
 
 <!-- Team -->

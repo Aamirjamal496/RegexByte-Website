@@ -1,22 +1,7 @@
 <?php
-include "commons/database.php";
 include "commons/header.php" ?>
-<!-- hero-section -->
-<!-- <section id="portfolio" class="portfolio"> -->
-<!-- <style>
-    /* Custom hover shadow effect */
-    .card-pr {
-        border-radius: 10px;
-        border: 1px solid grey;
-    }
 
-    .card-pr:hover {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 15px 40px rgba(0, 0, 0, 0.3);
-        transform: translateY(-5px);
-        transition: all 0.3s ease;
-        border: 0px;
-    }
-</style> -->
+<!-- hero-section -->
 <main id="main" class="portfolio">
 
     <!-- hero-section -->

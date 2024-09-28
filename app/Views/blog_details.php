@@ -1,5 +1,4 @@
-<?php include "commons/database.php";
-include "commons/detailsHead.php";  ?>
+<?php include "commons/detailsHead.php";  ?>
 <!-- Blog-Post -->
 <section id="blog-post" class="bg-cover">
     <div class="row py-5">

@@ -29,6 +29,7 @@ $routes->post('saveSlider','LoginController::saveSlider');
 $routes->post('UpdateSlider','LoginController::UpdateSlider');
 $routes->get('slider','LoginController::getSliderdash');
 $routes->get('deleteSlide/(:num)','LoginController::deleteSlide/$1');
+$routes->get('/editslide/(:num)','LoginController::editSlide/$1');
 
 // Projects Routs:
 // $routes->get('/projects', 'LoginController::getCategories');

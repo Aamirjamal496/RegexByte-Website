@@ -135,7 +135,7 @@
 
                         <div class="modal fade Model-slider" tabindex="-1" role="dialog"
                             aria-labelledby="mySmallModalLabel">
-                            <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-dialog modal-md" role="document">
                                 <div class="modal-content">
                                     <div class="card card-plain">
                                         <div class="card-header">
@@ -266,7 +266,7 @@
 
                                                 <div class="modal fade editSlide" id="editSlide" tabindex="-1" role="dialog"
                                                     aria-labelledby="editModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-sm" role="document">
+                                                    <div class="modal-dialog modal-md" role="document">
                                                         <div class="modal-content">
                                                             <div class="card card-plain">
                                                                 <div class="card-header">

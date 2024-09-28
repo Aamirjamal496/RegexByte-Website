@@ -149,7 +149,7 @@
 
                         <div class="modal fade Model-blog" tabindex="-1" role="dialog"
                             aria-labelledby="mySmallModalLabel">
-                            <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-dialog modal-md" role="document">
                                 <div class="modal-content">
                                     <div class="card card-plain">
                                         <div class="card-header">
@@ -238,7 +238,7 @@
 
                         <div class="modal fade " id="Modeleditblog" tabindex="-1" role="dialog"
                             aria-labelledby="mySmallModalLabel">
-                            <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-dialog modal-md" role="document">
                                 <div class="modal-content">
                                     <div class="card card-plain">
                                         <div class="card-header">
