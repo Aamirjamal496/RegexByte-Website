@@ -205,11 +205,13 @@ class LoginController extends Controller
         }
 
     }
+    
     // Update Slider:
     
     public function UpdateSlider()
     {
         $request = service('request');
+        
         $id = $request->getPost('id');
         $image = $request->GetFile('img');
         $profile = $image->getName();
@@ -225,8 +227,9 @@ class LoginController extends Controller
             'description' => $desc,
         ];
         $model = new LoginModel();
+        
         $model->updateSlider($id, $SData);
-        return redirect()->to(base_url('slider'));
+        return view("Slider.php");
     }
     // delete Slide:
     public function deleteSlide($id)

@@ -254,17 +254,15 @@
                                             <td class="align-middle text-center">
                                                 <button type="button"
                                                     class="btn btn-dark px-3 py-2 bg-gradient-secondary mt-2 mb-0 edit-btn"
-                                                    data-img="<?= $slide['profile'];?>"
-                                                    data-id="<?= $slide['id']; ?>" data-name="<?= $slide['title']; ?>"
-                                                    data-status="<?= $slide['status']; ?>"
-                                                    data-description="<?= $slide['description']; ?>" data-toggle="modal"
-                                                    data-target="#editSlide">Edit</button>
+                                                     data-toggle="modal"
+                                                    data-target="#editSlide<?=$slide['id'];?>" >Edit</button>
                                                 <!-- <a href="javascript:;" class="btn btn-secondary text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user" data-toggle="modal" data-target=".EditModel">Edit </a> -->
                                                 <!-- Model -->
                                                 <!-- small modal -->
+                                                
 
 
-                                                <div class="modal fade editSlide" id="editSlide" tabindex="-1" role="dialog"
+                                                <div class="modal fade editSlide" id="editSlide<?=$slide['id'];?>" tabindex="-1" role="dialog"
                                                     aria-labelledby="editModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-md" role="document">
                                                         <div class="modal-content">
@@ -281,17 +279,17 @@
                                                                         <div class="input-group input-group-outline mb-3">
                                                                             <!-- <label class="form-label">Profile</label> -->
                                                                             <input type="file" name="img" id="edit-img"
-                                                                                class="form-control" placeholder="Profile">
+                                                                            class="form-control">
                                                                         </div>
                                                                         <div class="input-group input-group-outline mb-3">
                                                                             <!-- <label class="form-label">Title</label> -->
-                                                                            <input type="text" name="title" id="edit-name"
+                                                                            <input type="text" value='<?= $slide['title'];?>' name="title" id="edit-name"
                                                                                 class="form-control" placeholder="title">
                                                                         </div>
                                                                         <div class="input-group input-group-outline mb-3">
-                                                                            <select name="status" id="edit-status"
+                                                                            <select name="status" id="edit-status" value='<?= $slide['status'];?>'
                                                                                 class="form-control">
-                                                                                <option value="default">Select Status
+                                                                                <option value="default"><?=$slide['status'];?>
                                                                                 </option>
                                                                                 <option value="1">Active</option>
                                                                                 <option value="0">In-Active</option>
@@ -300,7 +298,7 @@
                                                                         <div class="input-group input-group-outline mb-3">
                                                                             <textarea class="form-control"
                                                                                 name="description" id="edit-description"
-                                                                                placeholder="Description"></textarea>
+                                                                                placeholder="Description"><?=$slide['description'];?></textarea>
                                                                         </div>
                                                                         <div class="text-center">
                                                                             <input type="submit" value="Update"
@@ -432,26 +430,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const editButtons = document.querySelectorAll('.edit-btn');
-
-            editButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const id = this.getAttribute('data-id');
-                    const name = this.getAttribute('data-name');
-                    const status = this.getAttribute('data-status');
-                    const description = this.getAttribute('data-description');
-
-                    document.getElementById('edit-id').value = id;
-                    document.getElementById('edit-name').value = name;
-                    document.getElementById('edit-status').value = status;
-                    document.getElementById('edit-description').value = description;
-                });
-            });
-        });
-    </script>
+<!-- [0] -->
 
     <!-- For Search -->
      <script>
