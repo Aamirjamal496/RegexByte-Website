@@ -16,10 +16,31 @@ class LoginModel extends Model
     {
         return $this->db->table('contact_us')->insert($Data);
     }
-    public function showContact()
+    public function showContact($perPage = 20, $offset = 0)
     {
-        return $this->db->table('contact_us')->get()->getResultArray();
+       $builder= $this->db->table('contact_us');
+        $builder->limit($perPage, $offset);
+
+        $query = $builder->get();
+        return $query->getResultArray();
     }
+    public function getPager($perPage = 20, $currentPage = 1)
+    {
+        $builder = $this->db->table('contact_us');
+        $builder->select('COUNT(*) as total');
+
+        $totalQuery = $builder->get();
+        $totalResult = $totalQuery->getRowArray();
+        $total = isset($totalResult['total']) ? (int) $totalResult['total'] : 0;
+
+        $pager = service('pager');
+        $pagerLinks = $pager->makeLinks($currentPage, $perPage, $total, 'default_full');
+
+        return $pagerLinks;
+
+    }
+    
+    // End
     public function delContact($id)
     {
         $this->db->table('contact_us')->where('columns_id', $id)->delete();
@@ -64,7 +85,7 @@ class LoginModel extends Model
     {
         return $this->db->table('slider')->insert($SData);
     }
-    // Display slider data on page
+    // Display slider data on page:
     public function getSlider()
     {
         return $this->db->table('slider')
@@ -74,6 +95,14 @@ class LoginModel extends Model
     public function updateSlider($id, $SData)
     {
         return $this->db->table('slider')->where('id', $id)->update($SData);
+    }
+    public function getSliderById($id)
+    {
+        $slide = $this->table('slider')->where('id', $id)->first();
+        if (!$slide) {
+            throw new \RuntimeException('Slide not found.');
+        }
+        return $slide;
     }
     public function delslide($id)
     {
@@ -125,8 +154,6 @@ class LoginModel extends Model
             ->where('idProject', $projectId)
             ->delete();
     }
-    
-    // New
     public function portfolioDetails($id)
     {
         // Get project details with category information
@@ -150,12 +177,6 @@ class LoginModel extends Model
         return $project;
     }
 
-    // New End
-    // public function connectCat($id)
-    // {
-    //     return $this->db->table('projects')->select('projects.*, GROUP_CONCAT(categories.name) as catName')->join('categories', 'categories.id=projects.idCategory', 'left')->groupBy('projects.idCategory')->where('projects.idCategory', $id)->get()->getResultArray();
-    // }
-
 
     public function insertProject($data)
     {
@@ -169,9 +190,13 @@ class LoginModel extends Model
     }
 
     // reveiws Model functions
-    public function review($review)
+    public function review($perPage =20, $offset=0)
     {
-        return $this->db->table('user_review')->insert($review);
+        $builder= $this->db->table('user_review');
+        $builder->limit($perPage, $offset);
+
+        $query = $builder->get();
+        return $query->getResultArray();
     }
     public function getReview()
     {

@@ -26,10 +26,10 @@ $routes->post('UpdateCategory','LoginController::UpdateCategory');
 
 // Slider routes:
 $routes->post('saveSlider','LoginController::saveSlider');
-$routes->post('UpdateSlider','LoginController::UpdateSlider');
+$routes->post('UpdateSlider/(:num)','LoginController::UpdateSlider/$1');
 $routes->get('slider','LoginController::getSliderdash');
 $routes->get('deleteSlide/(:num)','LoginController::deleteSlide/$1');
-$routes->get('/editslide/(:num)','LoginController::editSlide/$1');
+// $routes->get('editslide/(:num)','LoginController::editSlide/$1');
 
 // Projects Routs:
 // $routes->get('/projects', 'LoginController::getCategories');

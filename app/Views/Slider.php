@@ -68,37 +68,37 @@
                     </a>
                 </li>
                 <li class="nav-item">
-            <a class="nav-link text-white" href="<?=base_url("projects");?>">
-              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">folder</i>
-              </div>
-              <span class="nav-link-text ms-1">Projects</span>
-            </a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link text-white" href="<?=base_url('Message');?>">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">message</i>
-            </div>
-            <span class="nav-link-text ms-1">Messages</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="<?=base_url('/reviews');?>">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">reviews</i>
-            </div>
-            <span class="nav-link-text ms-1">User Reviews</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="<?=base_url('blogs');?>">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">book</i>
-            </div>
-            <span class="nav-link-text ms-1">Blogs</span>
-          </a>
-        </li>
+                    <a class="nav-link text-white" href="<?= base_url("projects"); ?>">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">folder</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="<?= base_url('Message'); ?>">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">message</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Messages</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="<?= base_url('/reviews'); ?>">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">reviews</i>
+                        </div>
+                        <span class="nav-link-text ms-1">User Reviews</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="<?= base_url('blogs'); ?>">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">book</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Blogs</span>
+                    </a>
+                </li>
 
             </ul>
         </div>
@@ -121,7 +121,8 @@
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group input-group-outline">
                             <label class="form-label">Type here...</label>
-                            <input type="text" class="form-control" name="name" id="searchInput" onkeyup="searchProjects()" >
+                            <input type="text" class="form-control" name="name" id="searchInput"
+                                onkeyup="searchProjects()">
                         </div>
                     </div>
                     <ul class="navbar-nav  justify-content-end">
@@ -207,122 +208,119 @@
                         </div>
                     </div>
                     <div class="card-body px-0 pb-2">
-                            <table class="table align-items-center justify-content-center mb-0">
-                                <thead>
-                                    <tr class="bg-gradient-secondary text-white">
-                                        <th class="text-uppercase text-white text-xxs font-weight-bolder opacity-7">
-                                            Profile</th>
-                                        <th class="text-uppercase text-white text-xxs font-weight-bolder opacity-7">
-                                            ID</th>
-                                        <th
-                                            class="text-uppercase text-white text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Title</th>
-                                        <th
-                                            class="text-uppercase text-white text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Status</th>
-                                        <th
-                                            class="text-uppercase text-white text-xxs font-weight-bolder text-center opacity-7 ps-2">
-                                            DEscription</th>
-                                        <th class="text-uppercase text-white text-xxs font-weight-bolder text-center opacity-7 ps-2">
-                                            Actions
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($slider as $slide): ?>
-                                        <tr class="slider-row">
-                                            <td>
-                                            
-                                                <img src="<?php echo base_url('uploads/') . $slide['profile']; ?>"
-                                                    class="avatar avatar-sm rounded-circle mx-2 " alt="profile">
-                                            </td>
-                                            <td>
-                                                <h6 class="mb-0 text-sm mx-3"><?= $slide['id']; ?></h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-sm font-weight-bold mb-0" class="slider-title"><?= $slide['title']; ?></p>
-                                            </td>
-                                            <td>
-                                                <span class="text-xs font-weight-bold"><?= $slide['status'] ?></span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <div class="d-flex align-items-center justify-content-center">
-                                                    <span
-                                                        class="me-2 text-xs font-weight-bold"><?= $slide['description']; ?></span>
-                                                </div>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <button type="button"
-                                                    class="btn btn-dark px-3 py-2 bg-gradient-secondary mt-2 mb-0 edit-btn"
-                                                     data-toggle="modal"
-                                                    data-target="#editSlide<?=$slide['id'];?>" >Edit</button>
-                                                <!-- <a href="javascript:;" class="btn btn-secondary text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user" data-toggle="modal" data-target=".EditModel">Edit </a> -->
-                                                <!-- Model -->
-                                                <!-- small modal -->
-                                                
+                        <table class="table align-items-center justify-content-center mb-0">
+                            <thead>
+                                <tr class="bg-gradient-secondary text-white">
+                                    <th class="text-uppercase text-white text-xxs font-weight-bolder opacity-7">
+                                        Profile</th>
+                                    <th class="text-uppercase text-white text-xxs font-weight-bolder opacity-7">
+                                        ID</th>
+                                    <th class="text-uppercase text-white text-xxs font-weight-bolder opacity-7 ps-2">
+                                        Title</th>
+                                    <th class="text-uppercase text-white text-xxs font-weight-bolder opacity-7 ps-2">
+                                        Status</th>
+                                    <th
+                                        class="text-uppercase text-white text-xxs font-weight-bolder text-center opacity-7 ps-2">
+                                        DEscription</th>
+                                    <th
+                                        class="text-uppercase text-white text-xxs font-weight-bolder text-center opacity-7 ps-2">
+                                        Actions
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($slider as $slide): ?>
+                                    <tr class="slider-row">
+                                        <td>
+
+                                            <img src="<?php echo base_url('uploads/') . $slide['profile']; ?>"
+                                                class="avatar avatar-sm rounded-circle mx-2 " alt="profile">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0 text-sm mx-3"><?= $slide['id']; ?></h6>
+                                        </td>
+                                        <td>
+                                            <p class="text-sm font-weight-bold mb-0" class="slider-title">
+                                                <?= $slide['title']; ?></p>
+                                        </td>
+                                        <td>
+                                            <span class="text-xs font-weight-bold"><?= $slide['status'] ?></span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <span
+                                                    class="me-2 text-xs font-weight-bold"><?= $slide['description']; ?></span>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <button type="button"
+                                                class="btn btn-dark px-3 py-2 bg-gradient-secondary mt-2 mb-0 edit-btn"
+                                                data-toggle="modal" data-target="#editSlide<?= $slide['id']; ?>">Edit</button>
+                                            <!-- <a href="javascript:;" class="btn btn-secondary text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user" data-toggle="modal" data-target=".EditModel">Edit </a> -->
+                                            <!-- Model -->
+                                            <!-- small modal -->
 
 
-                                                <div class="modal fade editSlide" id="editSlide<?=$slide['id'];?>" tabindex="-1" role="dialog"
-                                                    aria-labelledby="editModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-md" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="card card-plain">
-                                                                <div class="card-header">
-                                                                    <h4 class="font-weight-bolder">Edit Slider</h4>
-                                                                    <p class="mb-0">Fill out the form to Edit Slide</p>
-                                                                </div>
-                                                                <div class="card-body">
-                                                                    <form role="form" action="<?= base_url('UpdateSlider');?>"
-                                                                    method="post"
-                                                                    enctype="multipart/form-data">
-                                                                        <input type="hidden" name="id" id="edit-id">
-                                                                        <div class="input-group input-group-outline mb-3">
-                                                                            <!-- <label class="form-label">Profile</label> -->
-                                                                            <input type="file" name="img" id="edit-img"
+
+                                            <div class="modal fade editSlide" id="editSlide<?= $slide['id']; ?>" tabindex="-1"
+                                                role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-md" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="card card-plain">
+                                                            <div class="card-header">
+                                                                <h4 class="font-weight-bolder">Edit Slider</h4>
+                                                                <p class="mb-0">Fill out the form to Edit Slide</p>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <form role="form" action="<?= base_url('UpdateSlider/') . $slide['id']; ?>"
+                                                                    method="post" enctype="multipart/form-data">
+                                                                    <input type="hidden" name="id" id="edit-id" value="<?=$slide['id'];?>">
+                                                                    <div class="input-group input-group-outline mb-3">
+                                                                        <!-- <label class="form-label">Profile</label> -->
+                                                                        <input type="file" name="img" id="edit-img"
                                                                             class="form-control">
-                                                                        </div>
-                                                                        <div class="input-group input-group-outline mb-3">
-                                                                            <!-- <label class="form-label">Title</label> -->
-                                                                            <input type="text" value='<?= $slide['title'];?>' name="title" id="edit-name"
-                                                                                class="form-control" placeholder="title">
-                                                                        </div>
-                                                                        <div class="input-group input-group-outline mb-3">
-                                                                            <select name="status" id="edit-status" value='<?= $slide['status'];?>'
-                                                                                class="form-control">
-                                                                                <option value="default"><?=$slide['status'];?>
-                                                                                </option>
-                                                                                <option value="1">Active</option>
-                                                                                <option value="0">In-Active</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="input-group input-group-outline mb-3">
-                                                                            <textarea class="form-control"
-                                                                                name="description" id="edit-description"
-                                                                                placeholder="Description"><?=$slide['description'];?></textarea>
-                                                                        </div>
-                                                                        <div class="text-center">
-                                                                            <input type="submit" value="Update"
-                                                                                class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"></input>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
+                                                                    </div>
+                                                                    <div class="input-group input-group-outline mb-3">
+                                                                        <!-- <label class="form-label">Title</label> -->
+                                                                        <input type="text" value='<?= $slide['title']; ?>'
+                                                                            name="title" id="edit-name" class="form-control"
+                                                                            placeholder="title">
+                                                                    </div>
+                                                                    <div class="input-group input-group-outline mb-3">
+                                                                        <select name="status" id="edit-status"
+                                                                            class="form-control">
+                                                                            <option value="1" <?= $slide['status'] == 1 ? 'selected' : ''; ?>>Active</option>
+                                                                            <option value="0" <?= $slide['status'] == 0 ? 'selected' : ''; ?>>In-Active</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="input-group input-group-outline mb-3">
+                                                                        <textarea class="form-control" name="description"
+                                                                            id="edit-description"
+                                                                            placeholder="Description"><?= $slide['description']; ?></textarea>
+                                                                    </div>
+                                                                    <div class="text-center">
+                                                                        <input type="submit" value="Update"
+                                                                            class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"></input>
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
 
-                                                <!-- ModelEnd -->
+                                            <!-- ModelEnd -->
 
 
-                                                <a type="button" href="<?= base_url('deleteSlide/' . $slide['id']); ?>"
-                                                    onclick="return confirm('Are You Sure You want to delete');"
-                                                    class="btn btn-primary px-3 py-2 mt-2 mb-0">Delete</a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
+                                            <a type="button" href="<?= base_url('deleteSlide/' . $slide['id']); ?>"
+                                                onclick="return confirm('Are You Sure You want to delete');"
+                                                class="btn btn-primary px-3 py-2 mt-2 mb-0">Delete</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
 
-                            </table>
+                        </table>
 
                     </div>
                 </div>
@@ -430,23 +428,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-<!-- [0] -->
+    <!-- [0] -->
 
     <!-- For Search -->
-     <script>
+    <script>
         function searchProjects() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const cards = document.querySelectorAll('.slider-row');
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.slider-row');
 
-    cards.forEach(card => {
-        const title = card.querySelector('.slider-title').innerText.toLowerCase();
-        card.style.display = title.includes(input) ? '' : 'none';
-    });
-}
+            cards.forEach(card => {
+                const title = card.querySelector('.slider-title').innerText.toLowerCase();
+                card.style.display = title.includes(input) ? '' : 'none';
+            });
+        }
 
-     </script>
+    </script>
 
-    
+
 
 </body>
 

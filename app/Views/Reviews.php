@@ -190,6 +190,11 @@
                       <?php endforeach;?>  
                     </tbody>
                 </table>
+                <div class="pagination-container ">
+      <div class="pagination ">
+         <h6 class="position-relative start-50"> <?= $pager ?></h6>
+      </div>
+</div>
               </div>
             </div>
           </div>

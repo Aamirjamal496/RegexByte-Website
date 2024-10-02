@@ -11,7 +11,7 @@ use CodeIgniter\HTTP\Message;
 use function PHPUnit\Framework\returnSelf;
 
 class LoginController extends Controller
-{    
+{
     public function read()
     {
         return view("readmore.php");
@@ -52,11 +52,11 @@ class LoginController extends Controller
         $last = $request->getPost('lname');
         $email = $request->getPost('email');
         $Msg = $request->getPost('msg');
-        $Data =  [
+        $Data = [
             'firstName' => $first,
             'lastName' => $last,
-            'email' =>$email,
-            'message'=> $Msg
+            'email' => $email,
+            'message' => $Msg
         ];
         $model = new LoginModel();
         $model->getContact($Data);
@@ -180,15 +180,15 @@ class LoginController extends Controller
 
     }
     // Slider show oon display function:
-    
+
     public function getSlidehome()
     {
-            $model = new LoginModel();
-            $data['slider'] = $model->getSlider();
+        $model = new LoginModel();
+        $data['slider'] = $model->getSlider();
 
-            $data['review'] = $model->getReview();
-            $data['blogs'] =$model->getBlog();
-            return view('index.php', $data);
+        $data['review'] = $model->getReview();
+        $data['blogs'] = $model->getBlog();
+        return view('index.php', $data);
 
     }
     public function getSliderdash()
@@ -205,32 +205,93 @@ class LoginController extends Controller
         }
 
     }
-    
+
     // Update Slider:
-    
+    // New Method to update slider:
     public function UpdateSlider()
     {
+
+        // Created from old code categories:
         $request = service('request');
-        
         $id = $request->getPost('id');
-        $image = $request->GetFile('img');
-        $profile = $image->getName();
-        $image->move(FCPATH . 'uploads', $profile);
+        // // Handle image upload
+        $image = $request->getFile('img');
+        if ($image && $image->isValid() && !$image->hasMoved()) {
+            $profile = $image->getName();
+            $image->move(FCPATH . 'uploads', $profile);
+            $SData['profile'] = $profile; // Update profile if a new image is uploaded
+        } else {
+            // Keep the existing profile image if no new image is uploaded
+            $SData['profile'] = $existingSlide['profile'] ?? null; // Use null if not set
+        }
+        // $image = $request->GetFile('img');
+        // $saveimage = $image->getName();
+        // $image->move(FCPATH . 'uploads', $saveimage);
         $title = $request->getPost('title');
         $status = $request->getPost('status');
         $desc = $request->getPost('description');
 
         $SData = [
-            'profile' => $profile,
             'title' => $title,
+            // 'profile'=>$profile,
             'status' => $status,
             'description' => $desc,
         ];
         $model = new LoginModel();
-        
         $model->updateSlider($id, $SData);
-        return view("Slider.php");
+        return redirect()->to(base_url('/slider'));
+
+        // Old code chatgpt:
+        // $request = service('request');
+        // $id = $request->getPost('id');
+
+        // $model = new LoginModel();
+
+        // // Fetch existing slide data
+        // $existingSlide = $model->getSliderById($id);
+        // if (!$existingSlide) {
+        //     return redirect()->to('/slider')->with('error', 'Slide not found.');
+        // }
+
+        // // Prepare the data to update
+        // $SData = [];
+
+        // // Check for new title and update if provided
+        // $title = $request->getPost('title');
+        // if ($title !== null) {
+        //     $SData['title'] = $title;
+        // }
+
+        // // Check for new status and update if provided
+        // $status = $request->getPost('status');
+        // if ($status !== null) {
+        //     $SData['status'] = $status;
+        // }
+
+        // // Check for new description and update if provided
+        // $desc = $request->getPost('description');
+        // if ($desc !== null) {
+        //     $SData['description'] = $desc;
+        // }
+
+        // // Handle image upload
+        // $image = $request->getFile('img');
+        // if ($image && $image->isValid() && !$image->hasMoved()) {
+        //     $profile = $image->getName();
+        //     $image->move(FCPATH . 'uploads', $profile);
+        //     $SData['profile'] = $profile; // Update profile if a new image is uploaded
+        // } else {
+        //     // Keep the existing profile image if no new image is uploaded
+        //     $SData['profile'] = $existingSlide['profile'] ?? null; // Use null if not set
+        // }
+
+        // // Update only the fields that were set
+        // $model->updateSlider($id, $SData);
+
+        // return redirect()->to('/slider')->with('success', 'Slide updated successfully.');
+        // return view('Slider.php');
     }
+
     // delete Slide:
     public function deleteSlide($id)
     {
@@ -240,14 +301,6 @@ class LoginController extends Controller
         $delete = $model->delslide($id);
         return redirect()->to(base_url('slider'));
     }
-     // Slider show oon display home screen function:
-    //  public function getSlidehome()
-    //  {
-    //      $model = new LoginModel();
-    //      // getSlider
-    //      $data['slider'] = $model->getSlider();
-    //      return view('index.php', $data);
-    //  }
 
     // Projects Function:
     public function getPr()
@@ -349,27 +402,30 @@ class LoginController extends Controller
     //     // print_r($test);
     //     return view('portfolio.php', $data);
     // }
-    // GetProjects by category:
-    public function getPrHome()
-{
-    // Get Category data for dropdown
-    $model = new LoginModel();
-    $data['cat'] = $model->getCatData();
 
-    // Check if a category is selected
-    $categoryId = $this->request->getVar('category');
     
-    if ($categoryId && $categoryId != 'default') {
-        // If category is selected, filter projects by category
-        $data['projects'] = $model->getProjectsByCategory($categoryId);
-    } else {
-        // If no category is selected, fetch all projects
-        $data['projects'] = $model->getCombinedData();
-    }
+    // GetProjects by category:
+    
+    public function getPrHome()
+    {
+        // Get Category data for dropdown
+        $model = new LoginModel();
+        $data['cat'] = $model->getCatData();
 
-    return view('portfolio.php', $data);
-    // return redirect()->to(base_url('portfolio', $data));
-}
+        // Check if a category is selected
+        $categoryId = $this->request->getVar('category');
+
+        if ($categoryId && $categoryId != 'default') {
+            // If category is selected, filter projects by category
+            $data['projects'] = $model->getProjectsByCategory($categoryId);
+        } else {
+            // If no category is selected, fetch all projects
+            $data['projects'] = $model->getCombinedData();
+        }
+
+        return view('portfolio.php', $data);
+        // return redirect()->to(base_url('portfolio', $data));
+    }
     // End
     // public function deleteProject($id)
     // {
@@ -379,23 +435,28 @@ class LoginController extends Controller
     // }
 
     public function deleteProject($id)
-{
-    $model = new LoginModel();
-    
-    // First, delete the related images
-    $model->deleteImagesByProjectId($id);
+    {
+        $model = new LoginModel();
 
-    // Then delete the project itself
-    $model->delProject($id);
-    
-    return redirect()->to(base_url("/projects"))->with('success', 'Project deleted successfully');
-}
+        // First, delete the related images
+        $model->deleteImagesByProjectId($id);
 
-// Messages Routes:
+        // Then delete the project itself
+        $model->delProject($id);
+
+        return redirect()->to(base_url("/projects"))->with('success', 'Project deleted successfully');
+    }
+    // Messages Routes:
     public function message()
     {
         $model = new LoginModel();
-        $data['message'] = $model->showContact();
+        $currentPage = $this->request->getVar('page') ? $this->request->getVar('page') : 1;
+        $perPage = 20;
+        $offset = ($currentPage - 1) * $perPage;
+        $data['message'] = $model->showContact($perPage, $offset);
+        $data['pager'] = $model->getPager( $perPage, $currentPage);
+        // print_r($msg);
+        // die();
         return view('Message.php', $data);
     }
     public function delMsg($id)
@@ -420,7 +481,7 @@ class LoginController extends Controller
         // die();
         return view('portfolio_details.php', $data);
     }
-// Logout:
+    // Logout:
 
     public function logout()
     {
@@ -433,22 +494,22 @@ class LoginController extends Controller
     public function saveProject()
     {
         $model = new LoginModel();
-        
+
         $data = [
             'idCategory' => $this->request->getPost('category'),
             'projectTitle' => $this->request->getPost('title'),
             'projectDescription' => $this->request->getPost('description'),
         ];
-        
-        $projectId = $model->insertProject($data);    
+
+        $projectId = $model->insertProject($data);
         $images = $this->request->getFiles();
-        
-        if ($images && isset($images['images'])) { 
-            foreach ($images['images'] as $img) {  
+
+        if ($images && isset($images['images'])) {
+            foreach ($images['images'] as $img) {
                 if ($img->isValid() && !$img->hasMoved()) {
                     $imgName = $img->getRandomName();
                     $img->move(FCPATH . 'uploads', $imgName);
-        
+
                     $imageData = [
                         'idProject' => $projectId,
                         'image' => $imgName,
@@ -467,32 +528,32 @@ class LoginController extends Controller
         $request = service('request');
         $Name = $request->getPost('name');
         $review = $request->getPost('review');
-        $review=[
-            'user'=>$Name,
-            'review'=>$review,
+        $review = [
+            'user' => $Name,
+            'review' => $review,
         ];
         $model = new LoginModel();
         $model->review($review);
         return redirect()->to(base_url('/'));
     }
     public function getReview()
-    {        
+    {
         $session = service('session');
         $S_ID = $session->Get('id');
         if ($S_ID) {
             $model = new LoginModel();
-            $data['review'] = $model->getReview();
+            $currentPage = $this->request->getVar('page') ? $this->request->getVar('page') : 1;
+        $perPage = 20;
+        $offset = ($currentPage - 1) * $perPage;
+        $data['review'] = $model->review($perPage, $offset);
+        $data['pager'] = $model->getPager( $perPage, $currentPage);
+            // $data['review'] = $model->getReview();
             return view('Reviews.php', $data);
         } else {
             return redirect()->to(base_url('/'));
         }
         // return view('Reviews.php');
     }
-
-    // public function getReviewHome()
-    // { 
-    // We have  getted the slider and reviews on same page that's why the code is with getSlideHome();
-    // }
     public function delReview($id)
     {
         $model = new LoginModel();
@@ -500,12 +561,18 @@ class LoginController extends Controller
         return redirect()->to(base_url("/reviews"));
     }
 
+    // public function getReviewHome()
+    // { 
+    // We have  getted the slider and reviews on same page that's why the code is with getSlideHome();
+    // }
+
 
     // Blogs
+    
     public function addBlogs()
     {
-        $request =service('request');
-        $session  = service('session');
+        $request = service('request');
+        $session = service('session');
         $Adm_Id = $session->Get('id');
         $image = $request->GetFile('images');
         $saveimage = $image->getName();
@@ -513,70 +580,72 @@ class LoginController extends Controller
         $title = $request->getPost('title');
         $description = $request->getPost('description');
 
-    $blog = [
-        'image' =>$saveimage,
-        'user_id' =>$Adm_Id,
-        'title' =>$title,
-        'description' =>$description,
-    ];
-    $model = new LoginModel();
-    $model->addBlog($blog);
-    return redirect()->to(base_url('blogs'));
-}
-public function getBlogs()
-{
-    $session = service('session');
-    $S_ID  =$session->get('id');
-    if($S_ID){
+        $blog = [
+            'image' => $saveimage,
+            'user_id' => $Adm_Id,
+            'title' => $title,
+            'description' => $description,
+        ];
         $model = new LoginModel();
-        $data['blogs'] =$model->getBlog();
-        return view('Blogs.php', $data);
-    }else{
-        return redirect()->to(base_url('/'));
+        $model->addBlog($blog);
+        return redirect()->to(base_url('blogs'));
     }
-}
+    public function getBlogs()
+    {
+        $session = service('session');
+        $S_ID = $session->get('id');
+        if ($S_ID) {
+            $model = new LoginModel();
+            $data['blogs'] = $model->getBlog();
+            return view('Blogs.php', $data);
+        } else {
+            return redirect()->to(base_url('/'));
+        }
+    }
     public function blogdetails($id)
-{
-    $model = new LoginModel();
-    $data['details'] = $model->bldetails($id);
+    {
+        $model = new LoginModel();
+        $data['details'] = $model->bldetails($id);
 
-    // print_r($data['details']);
-    // die();
-    if (empty($data['details'])) {
-        return "No data found"; // Handle the case when no data is found
+        // print_r($data['details']);
+        // die();
+        if (empty($data['details'])) {
+            return "No data found"; // Handle the case when no data is found
+        }
+
+        return view('blog_details', $data); // Removed .php from view name
     }
 
-    return view('blog_details', $data); // Removed .php from view name
-}
-
-public function editBlog(){
-    $request = service('request');
-    $id = $request->getPost('id');
+    public function editBlog()
+    {
+        $request = service('request');
+        $id = $request->getPost('id');
         $image = $request->GetFile('image');
         $profile = $image->getName();
         $image->move(FCPATH . 'uploads', $profile);
-    $title = $request->getPost('title');
-    $description = $request->getPost('description');
-    $BData=[
-        'image'=>$profile,
-        'title'=> $title,
-        'description'=> $description,
-    ];
-    $model = new LoginModel();
-     $update =$model->UpdateBlog($id, $BData);
-    // print_r($BData);
-    // die();
-    if( $update ){
-    return redirect()->to(base_url('blogs'));
-    }else{
-        print_r('Failed to update');
+        $title = $request->getPost('title');
+        $description = $request->getPost('description');
+        $BData = [
+            'image' => $profile,
+            'title' => $title,
+            'description' => $description,
+        ];
+        $model = new LoginModel();
+        $update = $model->UpdateBlog($id, $BData);
+        // print_r($BData);
+        // die();
+        if ($update) {
+            return redirect()->to(base_url('blogs'));
+        } else {
+            print_r('Failed to update');
+        }
     }
-}
-public function deleteBlog($id){
-    $model = new LoginModel();
-    $model->deleteBlog($id);
-    return redirect()->to(base_url('blogs'));
-}
+    public function deleteBlog($id)
+    {
+        $model = new LoginModel();
+        $model->deleteBlog($id);
+        return redirect()->to(base_url('blogs'));
+    }
 
 
 }

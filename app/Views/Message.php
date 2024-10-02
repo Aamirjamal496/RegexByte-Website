@@ -29,12 +29,17 @@
   html {
     scroll-behaviour: smooth;
   }
-  </style>
-  <body class="g-sidenav-show  bg-gray-200">
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+</style>
+
+<body class="g-sidenav-show  bg-gray-200">
+  <aside
+    class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
+    id="sidenav-main">
     <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
+      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+        aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
+        target="_blank">
         <img src="./public/logo.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold text-white">Regexbyte Dashboard</span>
       </a>
@@ -43,7 +48,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white" href="<?=base_url("dashboard");?>">
+          <a class="nav-link text-white" href="<?= base_url("dashboard"); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -58,7 +63,7 @@
             <span class="nav-link-text ms-1">Categories</span>
           </a>
         <li class="nav-item">
-          <a class="nav-link text-white " href="<?=base_url('slider');?>">
+          <a class="nav-link text-white " href="<?= base_url('slider'); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -66,7 +71,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="<?=base_url("projects");?>">
+          <a class="nav-link text-white " href="<?= base_url("projects"); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">folder</i>
             </div>
@@ -74,7 +79,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary"  href="<?=base_url('Message');?>">
+          <a class="nav-link text-white active bg-gradient-primary" href="<?= base_url('Message'); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">message</i>
             </div>
@@ -82,7 +87,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="<?=base_url('/reviews');?>">
+          <a class="nav-link text-white " href="<?= base_url('/reviews'); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">reviews</i>
             </div>
@@ -90,7 +95,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="<?=base_url('blogs');?>">
+          <a class="nav-link text-white " href="<?= base_url('blogs'); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">book</i>
             </div>
@@ -153,7 +158,7 @@
             </div>
           </div>
           <ul class="navbar-nav  justify-content-end">
-            
+
             <li class="nav-item d-flex align-items-center">
               <a href="<?= base_url('logout'); ?>" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
@@ -165,6 +170,7 @@
       </div>
     </nav>
     <!-- End Navbar -->
+
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
@@ -184,47 +190,54 @@
                       <th class="text-uppercase text-white text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                       <th class="text-center text-uppercase text-white text-xxs font-weight-bolder opacity-7">
                         Message</th>
-                        <th class="text-uppercase text-white text-xxs font-weight-bolder opacity-7">Time</th>
+                      <th class="text-uppercase text-white text-xxs font-weight-bolder opacity-7">Time</th>
                       <th class="text-center text-uppercase text-white text-xxs font-weight-bolder opacity-7">Actions
                       </th>
                       <!-- <th class="text-secondary opacity-7"></th> -->
                     </tr>
                   </thead>
                   <tbody class="cat-row">
-                      <?php foreach ($message as $msg): ?>
-                      <tr >
+                    <?php foreach ($message as $msg): ?>
+                      <tr>
                         <td>
                           <p class="text-xs font-weight-bold mb-0 ps-3"><?= $msg['columns_id']; ?></p>
                         </td>
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm cat-title"><?=$msg['firstName'];?><?=$msg['lastName'];?></h6>
+                              <h6 class="mb-0 text-sm cat-title"><?= $msg['firstName']; ?><?= $msg['lastName']; ?></h6>
                               <!-- <p class="text-xs text-secondary mb-0">richard@creative-tim.com</p> -->
                             </div>
                           </div>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0"><?=$msg['email'];?></p>
+                          <p class="text-xs font-weight-bold mb-0"><?= $msg['email']; ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                          <span class="badge badge-sm bg-gradient-secondary"><?=$msg['message'];?></span>
+                          <span class="badge badge-sm bg-gradient-secondary"><?= $msg['message']; ?></span>
                         </td>
                         <td>
-                          <span class="text-xs font-weight-bold mb-0"><?=$msg['current-timestamp'];?></span>
+                          <span class="text-xs font-weight-bold mb-0"><?= $msg['current-timestamp']; ?></span>
                         </td>
                         <td class="text-center">
-                          <a type="button" href="<?=base_url('delMsg/' . $msg['columns_id']);?>"
+                          <a type="button" href="<?= base_url('delMsg/' . $msg['columns_id']); ?>"
                             onclick="return confirm('Are You Sure You want to delete');"
                             class="btn btn-primary px-3 py-2 mt-2 mb-0">Delete</a>
                         </td>
-                      </tr> 
-                      <?php endforeach; ?>               
+                      </tr>
+                      <?php endforeach; ?>
                     </tbody>
-                </table>
+                  </table>
+                  
+                  <div class="pagination-container ">
+      <div class="pagination ">
+         <h6 class="position-relative start-50"> <?= $pager ?></h6>
+      </div>
+</div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -296,14 +309,14 @@
     </div>
   </div>
 
-  </body>
-  <!--   Core JS Files   -->
-<script src="./public/assets/js/core/popper.min.js" ></script>
-<script src="./public/assets/js/core/bootstrap.min.js" ></script>
-<script src="./public/assets/js/plugins/perfect-scrollbar.min.js" ></script>
-<script src="./public/assets/js/plugins/smooth-scrollbar.min.js" ></script>
-   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-   <script src="./public/assets/js/material-dashboard.min.js?v=3.1.0"></script>
-  
+</body>
+<!--   Core JS Files   -->
+<script src="./public/assets/js/core/popper.min.js"></script>
+<script src="./public/assets/js/core/bootstrap.min.js"></script>
+<script src="./public/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="./public/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="./public/assets/js/material-dashboard.min.js?v=3.1.0"></script>
+
 
 </html>
