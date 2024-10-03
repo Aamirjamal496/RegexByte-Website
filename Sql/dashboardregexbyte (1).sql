@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2024 at 11:28 AM
+-- Generation Time: Oct 03, 2024 at 09:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -90,7 +90,30 @@ CREATE TABLE `contact_us` (
 
 INSERT INTO `contact_us` (`columns_id`, `firstName`, `lastName`, `email`, `message`, `current-timestamp`) VALUES
 (3, 'Majid', 'Khan', 'm@gmail', 'We Are Satisfied about your so', '2024-09-06 14:28:03.842832'),
-(5, 'm', 'ajid', 'da@123', 'kankajdknkcnsnjnkmkaskakaskjkandkaskskamsanxkankam', '2024-09-06 22:36:43.477662');
+(5, 'm', 'ajid', 'da@123', 'kankajdknkcnsnjnkmkaskakaskjkandkaskskamsanxkankam', '2024-09-06 22:36:43.477662'),
+(6, 'sdm', 'mdlmd', 'aMS@12', ',dlsdd', '2024-10-02 10:52:12.448017'),
+(7, 'ADS', 'ADSDS', 'AS@DSDK1', 'SDAS', '2024-10-02 10:52:34.375176'),
+(8, 'FDE22E', 'S', 'SD@F', 'SADS', '2024-10-02 10:53:00.226106'),
+(9, 'MLDM', 'MSDM,S', 'ALDM@FSLDK', 'SDDSD', '2024-10-02 10:53:17.041659'),
+(10, 'DSMLWMLDS', 'MADMSLS', 'ASA@SDL', 'MDLSDMSS', '2024-10-02 10:53:44.029965'),
+(11, 'FDEW', 'DSF', 'SD@RSA', 'sfgfd', '2024-10-02 10:54:06.769689'),
+(12, 'dsfdf', 'fdff', 'df@ew', 'dfsd', '2024-10-02 10:54:28.341230'),
+(13, 'fsd', 'sfs', 'sz@12', 'fsdfd', '2024-10-02 10:54:47.671593'),
+(14, 'sd', 'sdsds', 'as@12wd', 'dss', '2024-10-02 10:55:06.176488'),
+(15, 'sdsa', 'sas', 'ads@12', 'adssa', '2024-10-02 10:55:36.347987'),
+(16, 'ads', 'ads', 'as@2', 'fdsf', '2024-10-02 10:55:54.118471'),
+(17, 'adsd', 'ads', 'ads@1213', 'nnfsnd', '2024-10-02 10:56:15.192011'),
+(18, 'csdna', 'mskak', 'msa@wdskj', 'skks', '2024-10-02 10:56:40.652092'),
+(19, 'skdm', 'mkskams', 'madm@wdmsld', 'salms', '2024-10-02 10:56:54.466727'),
+(20, ',smd,a', 'mdw,', 'lwdw@2', 'lkadsl', '2024-10-02 10:57:16.145372'),
+(21, 'smna,dm', 'mslmd', 'AM@DSL', 'LDSKDLKL', '2024-10-02 10:57:43.072817'),
+(22, 'rw,m`', 'masdm,a', 'wdmsld@mdkf', 'dmsdm,', '2024-10-02 16:23:13.064171'),
+(23, ' fs,f,s', 'md,md,', 'kljdk@wmfsk', 'mdskjk', '2024-10-02 16:23:30.187315'),
+(24, 'dsd', 'd', 'sd@dsl', 'ds', '2024-10-02 22:32:16.921341'),
+(25, 'ssds', 'dsd', 'as@dsds', 'sd', '2024-10-02 22:32:35.004522'),
+(26, 'ndksdk', 'dskjds', 'mskds@fskldj', 'mskdd', '2024-10-02 22:32:47.516246'),
+(27, 'dmsdnmmsk', 'mdskdejwoe', 'm@wflfkls', 'dsldklkq', '2024-10-02 22:32:59.709908'),
+(28, 'nf,sjwkj', 'dsldl', 'dksldk@wdsldk', 'dsldk', '2024-10-02 22:33:12.864676');
 
 -- --------------------------------------------------------
 
@@ -165,8 +188,8 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`profile`, `id`, `title`, `status`, `description`) VALUES
-('1725702624_e2c1889a4e285b72a690_3.jpg', 14, 'We Are Team Of Experts', '1', 'Mobile App Software Development Company'),
-('1725702624_23c6e49b5b82d8f7c609_1.jpg', 15, 'Welcome To RegexByte', '1', 'Top Rated Software Development Company\r\n');
+('1725702624_e2c1889a4e285b72a690_2.jpg', 18, 'Welcome to RegexByte', '1', 'Top Rated Software Development Company'),
+('1725702624_23c6e49b5b82d8f7c609_5.jpg', 22, 'We Are Team Of Experts', '1', 'Top Rated Software Development Company.');
 
 -- --------------------------------------------------------
 
@@ -213,7 +236,28 @@ CREATE TABLE `user_review` (
 --
 
 INSERT INTO `user_review` (`id`, `user`, `review`, `created_at`) VALUES
-(6, 'Majid', 'mzbfbdsdmds,smd,ma,sm,ams,ams,ma,mkdnsmm', '2024-09-18');
+(6, 'Majid', 'mzbfbdsdmds,smd,ma,sm,ams,ams,ma,mkdnsmm', '2024-09-18'),
+(7, 'mlm', ',lml,', '2024-10-02'),
+(8, 'sx', 'da', '2024-10-02'),
+(9, 'dsdasacd', 'ssd', '2024-10-02'),
+(10, 'fgfs', ',skjf', '2024-10-02'),
+(11, 'sm,m', 'mdsdm', '2024-10-02'),
+(12, 'dm,dmlqdmls', 'dlskflk', '2024-10-02'),
+(13, 'dsm d', 'ds,md,sm', '2024-10-02'),
+(14, 'w,md,m', 'dms,md,', '2024-10-02'),
+(15, 'sd,m,', 'd,smd,', '2024-10-02'),
+(16, 'md,md,', 'ds,md', '2024-10-02'),
+(17, 'da,m', 'd,smd,', '2024-10-02'),
+(18, 'dm,m', 'md,sm', '2024-10-02'),
+(19, 'aa,m,', ',am,s', '2024-10-02'),
+(20, 'dmm', 'm,amd,', '2024-10-02'),
+(21, ',d,m', 'm,amd', '2024-10-02'),
+(22, 'd,,sm', 'ma,md,', '2024-10-02'),
+(23, 'd,am', 'm,amd,m', '2024-10-02'),
+(24, ',', 'asas', '2024-10-02'),
+(25, 'dks', 'm,d,m', '2024-10-02'),
+(26, 'ndmand', 'md,msd,m', '2024-10-02'),
+(27, ' d,m,', 'm,dms,md', '2024-10-02');
 
 --
 -- Indexes for dumped tables
@@ -290,7 +334,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `columns_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `columns_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `images`
@@ -308,7 +352,7 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `user-table`
@@ -320,7 +364,7 @@ ALTER TABLE `user-table`
 -- AUTO_INCREMENT for table `user_review`
 --
 ALTER TABLE `user_review`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
