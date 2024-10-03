@@ -29,6 +29,39 @@
   html {
     scroll-behaviour: smooth;
   }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .pagination a {
+    background-color: #8b9197;
+    color: white;
+    padding: 2px 4px;
+    margin: 0px 1px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .pagination a:hover {
+    background-color: silver;
+    /* Darker shade on hover */
+  }
+
+  .pagination span {
+    padding: 8px 12px;
+    /* Padding for current page indicator */
+    margin: 0 5px;
+    /* Spacing */
+    border-radius: 5px;
+    /* Rounded corners */
+    background-color: #6c757d;
+    /* Bootstrap secondary color */
+    color: white;
+    /* Text color */
+  }
 </style>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -231,7 +264,7 @@
                   
                   <div class="pagination-container ">
       <div class="pagination ">
-         <h6 class="position-relative start-50"> <?= $pager ?></h6>
+         <?= $pager ?>
       </div>
 </div>
               </div>

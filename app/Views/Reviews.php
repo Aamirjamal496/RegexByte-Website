@@ -34,6 +34,40 @@
     background-color: red;
     color: whitesmoke;
   }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .pagination a {
+    background-color: #8b9197;
+    color: white;
+    padding: 2px 4px;
+    margin: 0px 1px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .pagination a:hover {
+    background-color: silver;
+    /* Darker shade on hover */
+  }
+
+  .pagination span {
+    padding: 8px 12px;
+    /* Padding for current page indicator */
+    margin: 0 5px;
+    /* Spacing */
+    border-radius: 5px;
+    /* Rounded corners */
+    background-color: #6c757d;
+    /* Bootstrap secondary color */
+    color: white;
+    /* Text color */
+  }
 </style>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -60,7 +94,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white  " href="<?=base_url("/category");?>">
+          <a class="nav-link text-white  " href="<?= base_url("/category"); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -68,7 +102,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="<?=base_url('slider')?>">
+          <a class="nav-link text-white " href="<?= base_url('slider') ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -76,15 +110,15 @@
           </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="<?=base_url("projects");?>">
-              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">folder</i>
-              </div>
-              <span class="nav-link-text ms-1">Projects</span>
-            </a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link text-white" href="<?=base_url('Message');?>">
+          <a class="nav-link text-white" href="<?= base_url("projects"); ?>">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">folder</i>
+            </div>
+            <span class="nav-link-text ms-1">Projects</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="<?= base_url('Message'); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">message</i>
             </div>
@@ -92,7 +126,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary " href="<?=base_url('/reviews');?>">
+          <a class="nav-link text-white active bg-gradient-primary " href="<?= base_url('/reviews'); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">reviews</i>
             </div>
@@ -100,7 +134,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="<?=base_url('blogs');?>">
+          <a class="nav-link text-white " href="<?= base_url('blogs'); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">book</i>
             </div>
@@ -129,7 +163,7 @@
             </div>
           </div>
           <ul class="navbar-nav  justify-content-end">
-            
+
             <li class="nav-item d-flex align-items-center">
               <a href="<?= base_url('logout'); ?>" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
@@ -167,7 +201,7 @@
                   <tbody class="cat-row">
                     <?php foreach ($review as $rev): ?>
                       <tr>
-                      <td>
+                        <td>
                           <p class="text-xs font-weight-bold mb-0"><?= $rev['id']; ?></p>
                         </td>
                         <td>
@@ -187,14 +221,14 @@
                             class="btn btn-primary px-3 py-2 mt-2 mb-0">Delete</a>
                         </td>
                       </tr>
-                      <?php endforeach;?>  
-                    </tbody>
+                    <?php endforeach; ?>
+                  </tbody>
                 </table>
-                <div class="pagination-container ">
-      <div class="pagination ">
-         <h6 class="position-relative start-50"> <?= $pager ?></h6>
-      </div>
-</div>
+                <div class="pagination-container">
+                  <div class="pagination">
+                    <?= $pager; ?>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
