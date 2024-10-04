@@ -190,17 +190,22 @@ class LoginModel extends Model
     }
 
     // reveiws Model functions
-    public function review($perPage =20, $offset=0)
+    public function review($review)
     {
-        $builder= $this->db->table('user_review');
-        $builder->limit($perPage, $offset);
+        return $this->db->table('user_review')->insert($review);
+        // $builder= $this->db->table('user_review');
+        // $builder->limit($perPage, $offset);
 
-        $query = $builder->get();
-        return $query->getResultArray();
+        // $query = $builder->get();
+        // return $query->getResultArray();
     }
-    public function getReview()
+    public function getReview($perPage =20, $offset=0)
     {
-        return $this->db->table('user_review')->get()->getResultArray();
+        $builder = $this->db->table('user_review');
+        $builder->limit($perPage, $offset);
+        $query=$builder->get();
+        return $query->getResultArray();
+        // return $this->db->table('user_review')->get()->getResultArray();
     }
     public function deleteReview($id)
     {

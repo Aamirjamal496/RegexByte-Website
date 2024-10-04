@@ -26,7 +26,9 @@
         max-width: 100%;
         /* transform: translateX(13%); */
         object-fit: cover;
-        opacity:50%;
+        /* opacity:50%; */
+
+        filter: brightness(50%)
         
     }
     /* .slide2{
@@ -823,17 +825,6 @@
                                     <label for="name" class="form-label">Your Name</label>
                                     <input type="text" class="form-control" id="name" name="name"
                                         placeholder="enter your name">
-                                    <?php
-                                    if (isset($_SESSION['review_name_alert'])) {
-
-                                        echo '<small class="text-danger">' . $_SESSION['review_name_alert'] . '</small>'
-
-                                            ?>
-                                        <?php
-
-                                    }
-                                    unset($_SESSION['review_name_alert']);
-                                    ?>
 
                                 </div>
 
@@ -841,18 +832,6 @@
                                     <label for="review" class="form-label">Your Review</label>
                                     <textarea class="form-control" id="review" name="review" rows="3"
                                         placeholder="write review here"></textarea>
-
-                                    <?php
-                                    if (isset($_SESSION['review_alert'])) {
-
-                                        echo '<small class="text-danger">' . $_SESSION['review_alert'] . '</small>'
-
-                                            ?>
-                                        <?php
-
-                                    }
-                                    unset($_SESSION['review_alert']);
-                                    ?>
                                 </div>
 
                                 <div class="mb-3">

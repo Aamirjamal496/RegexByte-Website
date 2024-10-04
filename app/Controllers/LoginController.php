@@ -533,8 +533,12 @@ class LoginController extends Controller
             'review' => $review,
         ];
         $model = new LoginModel();
-        $model->review($review);
+       $add= $model->review($review);
+       if ($add) {
         return redirect()->to(base_url('/'));
+       }else{
+        return redirect()->with("message","Failed");
+       }
     }
     public function getReview()
     {
@@ -545,7 +549,7 @@ class LoginController extends Controller
             $currentPage = $this->request->getVar('page') ? $this->request->getVar('page') : 1;
         $perPage = 20;
         $offset = ($currentPage - 1) * $perPage;
-        $data['review'] = $model->review($perPage, $offset);
+        $data['review'] = $model->getReview($perPage, $offset);
         $data['pager'] = $model->getPager( $perPage, $currentPage);
             // $data['review'] = $model->getReview();
             return view('Reviews.php', $data);
