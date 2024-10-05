@@ -37,159 +37,237 @@
     } */
 </style>
 <!-- Sliders -->
-<div class="row">
+<!-- <div class="row  ">
+     Chat gpt code: -->
+<div class="slide2 bg-cover d-flex align-items-center">
+    <div class="container-fluid">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <?php foreach ($slider as $key => $slide): ?>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $key ?>"
+                        <?= $key === 0 ? 'class="active"' : '' ?> aria-current="true"
+                        aria-label="Slide <?= $key + 1 ?>"></button>
+                <?php endforeach; ?>
+            </div>
+            <div class="carousel-inner">
+                <?php foreach ($slider as $key => $slide): ?>
+                    <div class="carousel-item <?= $key === 0 ? 'active' : '' ?>">
+                        <img  src="<?= base_url('uploads/' . $slide['profile']); ?>" class="d-block w-100 h-20%"
+                            alt="<?= $slide['title']; ?>">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h6 class="text-uppercase text-white animate__animated animate__slideInDown">
+                                <?= $slide['title']; ?></h6>
+                            <h3 class="tag my-3 text-white text-uppercase animate__animated animate__slideInUp">
+                                <?= $slide['description']; ?></h3>
+                            <a href="<?= base_url("readmore"); ?>"><button
+                                    class="btn btn-brand animate__animated animate__slideInLeft">Read more</button></a>
+                            <a href="<?=base_url('portfolio');?>"><button
+                                    class="btn btn-outline-light ms-md-3 animate__animated animate__slideInRight">Our
+                                    Work</button></a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Chat gpt end -->
+<!-- New Slider -->
+<!-- <div class="row">
     <div class="col-md-12">
         <div class="home">
             <div class="slider-wrapper owl-carousel owl-theme" id="hero-slider">
-                <?php foreach ($slider as $slider_row): ?>
-                <div class="min-vh-100 bg-cover d-flex align-items-center"
-                     style="background-image: linear-gradient(rgba(9, 32, 50, 0.5), rgba(9, 32, 50, 0.5)), url('<?= base_url('uploads/' . $slider_row['profile']); ?>');">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <h6 class="text-uppercase text-white animate__animated animate__slideInDown">
-                                    <?= esc($slider_row['title']); ?></h6>
-                                <h3 class="tag my-3 text-white text-uppercase animate__animated animate__slideInLeft">
-                                    <?php
-                                    $words = explode(' ', esc($slider_row['description']));
-                                    $line1 = implode(' ', array_slice($words, 0, 3));
-                                    $line2 = implode(' ', array_slice($words, 3));
-                                    echo esc($line1) . '<br>' . esc($line2);
-                                    ?>
-                                </h3>
-                                <a href="<?= site_url('readmore'); ?>"><button
-                                        class="btn btn-brand animate__animated animate__slideInUp">Read more</button></a>
+                <?php foreach ($slider as $slide): ?>
+                    <div class="min-vh-100 bg-cover d-flex align-items-center"
+                        style="background-image: linear-gradient(rgba(9, 32, 50, 0.5), rgba(9, 32, 50, 0.5)), url('<?= base_url('uploads/' . $slide['profile']); ?>');">
+                        
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 class="text-uppercase text-white animate__animated animate__slideInDown">
+                                        <?= $slide['title']; ?>
+                                    </h6>
+                                    <h3 class="tag my-3 text-white text-uppercase animate__animated animate__slideInLeft">
+                                        <?php
+                                        $words = explode(' ', $slide['description']);
+                                        $line1 = implode(' ', array_slice($words, 0, 3));
+                                        $line2 = implode(' ', array_slice($words, 3));
+                                        echo $line1 . '<br>' . $line2;
+                                        ?>
+                                    </h3>
+                                    <a href="<?= base_url("readmore"); ?>"><button class="btn btn-brand animate__animated animate__slideInUp">Read more</button></a>
+                                    <a href="portfolio.php"><button class="btn btn-outline-light ms-md-3 animate__animated animate__slideInUp">Our Work</button></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <?php endforeach; ?>
             </div>
+        </div>
+    </div>
+</div> -->
 
-            <!-- Inquiry Section -->
-            <div class="container inquiry-section" data-aos="fade-down" data-aos-duration="3000">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-xl-8 col-md-8 col-lg-12 col-sm-12">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-auto">
-                                <div class="row support-icon">
-                                    <div class="col-auto">
-                                        <img src="<?= base_url('Homeassets/img/customer-service.png'); ?>" alt="">
-                                    </div>
-                                    <div class="col-auto">
-                                        <h4>Inquiries Support</h4>
-                                    </div>
-                                </div>
-                                <p>Using any of our products <br> and need help</p>
-                                <a href="">Get Support &nbsp;<i class="fa-sharp fa-solid fa-phone"></i></a>
-                            </div>
-                            <div class="vertical-seperator"></div>
-                            <div class="col-auto partner-section">
-                                <div class="row support-icon">
-                                    <div class="col-auto">
-                                        <img src="<?= base_url('Homeassets/img/cooperation.png'); ?>" alt="">
-                                    </div>
-                                    <div class="col-auto">
-                                        <h4>Partner Support</h4>
-                                    </div>
-                                </div>
-                                <p>Looking for our partner? <br> Browse our partner directory</p>
-                                <a href=""> Find a Partner &nbsp;<i class="fa-sharp fa-solid fa-phone"></i></a>
-                            </div>
+<!-- New Slider End -->
+<!-- inquiry section -->
+<div class="container inquiry-section float-md-end " data-aos="fade-down" data-aos-duration="3000">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-xl-8 col-md-8 col-lg-12 col-sm-12">
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col-auto">
+
+                    <div class="row support-icon">
+
+                        <div class="col-auto">
+                            <img src="./public/Homeassets/img/customer-service.png" alt="">
+                        </div>
+                        <div class="col-auto">
+                            <h4>Inquiries Support</h4>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Contact Icon -->
-            <div class="container contact-icon">
-                <div class="row">
-                    <div class="col-auto d-sm-none d-md-block">
-                        <a href="<?= site_url('contact'); ?>"><img src="<?= base_url('Homeassets/img/link.png'); ?>" alt=""></a>
+                    <p>Using any of our products <br> and need help</p>
+                    <a href="">Get Support &nbsp;<i class="fa-sharp fa-solid fa-phone"></i></a>
+                </div>
+                <div class="vertical-seperator"></div>
+                <div class="col-auto partner-section">
+                    <div class="row support-icon">
+                        <div class="col-auto">
+                            <img src="./public/Homeassets/img/cooperation.png" alt="">
+                        </div>
+                        <div class="col-auto">
+                            <h4>Partner Support</h4>
+                        </div>
                     </div>
+                    <p>Looking For our partner? <br> Browse our partner directory</p>
+                    <a href=""> Find a Partner &nbsp;<i class="fa-sharp fa-solid fa-phone"></i></a>
+
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- Contact icon -->
+<div class="container  contact-icon ">
+    <div class="row ">
+        <div class="col-auto d-sm-none d-md-block">
 
-<!-- About Us -->
+            <a href="index.php#contact"><img src="./public/Homeassets/img/link.png" alt=""></a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- about us -->
 <div class="row">
     <div class="col-md-12">
+
         <section id="about">
-            <div class="container">
-                <div class="row align-items-center justify-content-center ms-md-5">
-                    <div class="col-md-6">
+            <div class="container ">
+                <div class="row align-items-center justify-content-center ms-lg-5">
+
+                    <div class="col-auto">
+
                         <div class="about-content mt-4 intro">
                             <h6 class="text-uppercase text-brand" data-aos="fade-down" data-aos-duration="3000">
-                                About Our Company</h6>
-                            <h1 data-aos="fade-down" data-aos-duration="3000">Choose the Best IT <br>Service Provider</h1>
-                            <p class="mt-4 p-border" data-aos="fade-right" data-aos-duration="3000">
-                                Selecting the right IT service provider is crucial for unlocking your business’s full potential. At <b>Regexbyte (SMC PVT) LTD</b>, we understand that your needs are unique and require customized solutions. Our team of experts specializes in delivering tailored software development services, ensuring that each solution is aligned with your business objectives. With our focus on innovation, quality, and efficiency, we help you achieve your goals and drive success in a competitive landscape. Choose Regexbyte for a partner that understands your distinct requirements and delivers exceptional results.
-                            </p>
+                                About
+                                Our
+                                Company</h6>
+                            <h1 data-aos="fade-down" data-aos-duration="3000">Choose The Best IT <br>Service
+                                Company
+                            </h1>
+                            <p class="mt-4 p-border" data-aos="fade-right" data-aos-duration="3000">Selecting the right IT service provider is crucial for unlocking your business’s full potential. At <b>Regexbyte (SMC PVT) LTD</b>, we understand that your needs are unique and require customized solutions. Our team of experts specializes in delivering tailored software development services, ensuring that each solution is aligned with your business objectives. With our focus on innovation, quality, and efficiency, we help you achieve your goals and drive success in a competitive landscape. Choose Regexbyte for a partner that understands your distinct requirements and delivers exceptional results.</p>
                             <hr>
                             <div class="row" data-aos="fade-up" data-aos-duration="3000">
-                                <div class="col-md-6">
+                                <div class="col-md-8">
+
                                     <div class="row support-icon">
-                                        <div class="col-auto money-back-icon">
-                                            <img src="<?= base_url('Homeassets/img/money-back-guarantee.png'); ?>" alt="">
+
+                                        <div class="col-auto money-back-icon ">
+                                            <img src="./public/Homeassets/img/money-back-guarantee.png" alt="">
                                         </div>
                                         <div class="col-auto">
-                                            <h5>Guaranteed <br>Satisfaction</h5>
+                                            <h5>Money Back
+                                                <br>Gurrantee
+                                            </h5>
                                         </div>
                                     </div>
+
+
                                 </div>
-                                <div class="col-md-6" data-aos="fade-up" data-aos-duration="3000">
+                                <div class="col-md-12 " data-aos="fade-up" data-aos-duration="3000">
+
                                     <div class="row support-icon">
+
                                         <div class="col-auto technical-support-icon">
-                                            <img src="<?= base_url('Homeassets/img/technical-support.png'); ?>" alt="">
+                                            <img src="./public/Homeassets/img/technical-support.png" alt="">
                                         </div>
                                         <div class="col-auto technical-support">
                                             <h5>Technical <br>Support</h5>
                                         </div>
                                     </div>
+
+
                                 </div>
                             </div>
+
                             <hr>
-                            <div class="row g-3" data-aos="fade-up" data-aos-duration="3000">
-                                <div class="col-md-6">
-                                    <button class="btn btn-brand mt-4">Contact us &nbsp; &#8594;</button>
+
+                            <div class="row g-3 " data-aos="fade-up" data-aos-duration="3000">
+                                <div class="col-md-10 ">
+                                    <button class="btn btn-brand mt-4 ">Contact us &nbsp; &#8594;</button>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 ">
                                     <div class="row support-icon">
+
                                         <div class="col-auto help-icon">
                                             <a href=""><i class="fa-sharp fa-solid fa-phone"></i></a>
                                         </div>
                                         <div class="col-auto help-icon">
                                             <p>Call for help</p>
-                                            <h5>+92 3339861926</h5>
+                                            <h5>+92 33433552</h5>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 about-img text-center" data-aos="fade-left" data-aos-duration="3000">
-                        <img  src="<?= base_url('../public/Homeassets/img/h8-banner1.png'); ?>" alt="">
+                    <div class="col-md-8 about-img text-center"  data-aos="fade-left" data-aos-duration="3000">
+                        <img src="./public/Homeassets/img/h8-banner1.png" alt="">
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    <!-- src="./public/Homeassets/img/h8-banner1" -->
-    <!-- Contact Us Button -->
+    <!-- Contact us button -->
+
     <div class="container">
-        <div class="row">
-            <div class="col-auto contact-us-button">
-                <button class="btn btn-brand shadow" data-aos="fade-right" data-aos-duration="3000">
-                    <a href="" class="text-white"><i class="fa-sharp fa-solid fa-phone"></i></a>
-                    &nbsp; Contact us: 03339861926
-                </button>
+        <div class="row ">
+            <div class="col-auto  contact-us-button">
+                <button class="btn btn-brand shadow" data-aos="fade-right" data-aos-duration="3000"><a href=""
+                        class="text-white"><i class="fa-sharp fa-solid fa-phone"></i></a>
+                    &nbsp;
+                    Contact us:034587877878 </button>
             </div>
         </div>
     </div>
+    </section>
 </div>
-
+<!-- About Us Section -->
 
 
 <!-- Why choose us -->
