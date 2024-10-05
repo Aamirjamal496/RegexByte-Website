@@ -64,6 +64,16 @@
               <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank"
                 href="https://www.creative-tim.com/builder?ref=navbar-material-dashboard">Online Builder</a>
             </li>
+            <li class="nav-item d-xl-none ps-3 pe-2 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
+           
 
             <li class="nav-item d-flex align-items-center">
               <a href="<?= base_url('logout'); ?>" class="nav-link text-body font-weight-bold px-0">

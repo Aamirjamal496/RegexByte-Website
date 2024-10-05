@@ -190,22 +190,7 @@
                             <h1 data-aos="fade-down" data-aos-duration="3000">Choose The Best IT <br>Service
                                 Company
                             </h1>
-                            <p class="mt-4 p-border" data-aos="fade-right" data-aos-duration="3000">Your
-                                business is
-                                as
-                                unique
-                                as the customers you serve, which means
-                                standard,
-                                out-of-the-box
-                                solutions are not likely to
-                                unlock the potential of your business. Fortunately, you don't have to settle.
-                                The
-                                experts at
-                                Regexbyte IT Solutions
-                                offer tailored custom software development services to help you grow your
-                                business
-                                with
-                                purpose and efficiency.</p>
+                            <p class="mt-4 p-border" data-aos="fade-right" data-aos-duration="3000">Selecting the right IT service provider is crucial for unlocking your business’s full potential. At <b>Regexbyte (SMC PVT) LTD</b>, we understand that your needs are unique and require customized solutions. Our team of experts specializes in delivering tailored software development services, ensuring that each solution is aligned with your business objectives. With our focus on innovation, quality, and efficiency, we help you achieve your goals and drive success in a competitive landscape. Choose Regexbyte for a partner that understands your distinct requirements and delivers exceptional results.</p>
                             <hr>
                             <div class="row" data-aos="fade-up" data-aos-duration="3000">
                                 <div class="col-md-8">

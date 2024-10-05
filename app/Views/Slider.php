@@ -130,10 +130,16 @@
                             <a class="btn btn-outline-primary btn-sm mb-0 me-3" data-toggle="modal"
                                 data-target=".Model-slider">Add Slider</a>
                         </li>
-                        <!-- Model -->
-                        <!-- small modal -->
-                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button> -->
-
+                        <li class="nav-item d-xl-none ps-3 pe-2 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
+                        <!-- Model For Adding slider -->
                         <div class="modal fade Model-slider" tabindex="-1" role="dialog"
                             aria-labelledby="mySmallModalLabel">
                             <div class="modal-dialog modal-md" role="document">
@@ -147,7 +153,6 @@
                                             <form role="form" action="<?= base_url('saveSlider'); ?>" method="post"
                                                 enctype="multipart/form-data">
                                                 <div class="input-group input-group-outline mb-3">
-                                                    <!-- <label class="form-label">Profile</label> -->
                                                     <input type="file" name="img" placeholder="Profile"
                                                         class="form-control">
                                                 </div>
@@ -156,26 +161,16 @@
                                                     <input type="text" name="title" class="form-control">
                                                 </div>
                                                 <div class="input-group input-group-outline mb-3">
-                                                    <!-- <label class="form-label">Status</label> -->
                                                     <select name="status" class="form-control">
                                                         <option value="default">Select Status</option>
                                                         <option value="1">Active</option>
                                                         <option value="0">In-Active</option>
                                                     </select>
-                                                    <!-- <input type="email" class="form-control"> -->
                                                 </div>
                                                 <div class="input-group input-group-outline mb-3">
-                                                    <!-- <label class="form-label">Description</label> -->
-                                                    <!-- <input type="password" class="form-control"> -->
                                                     <textarea class="form-control" name="description"
                                                         placeholder="Description"></textarea>
                                                 </div>
-                                                <!-- <div class="form-check form-check-info text-start ps-0">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
-                                                    </label>
-                                                </div> -->
                                                 <div class="text-center">
                                                     <input type="submit"
                                                         class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"></input>
@@ -257,11 +252,8 @@
                                                 class="btn btn-dark px-3 py-2 bg-gradient-secondary mt-2 mb-0 edit-btn"
                                                 data-toggle="modal" data-target="#editSlide<?= $slide['id']; ?>">Edit</button>
                                             <!-- <a href="javascript:;" class="btn btn-secondary text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user" data-toggle="modal" data-target=".EditModel">Edit </a> -->
-                                            <!-- Model -->
-                                            <!-- small modal -->
 
-
-
+                                            <!-- Model For Editing slider -->
                                             <div class="modal fade editSlide" id="editSlide<?= $slide['id']; ?>" tabindex="-1"
                                                 role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-md" role="document">
@@ -276,12 +268,10 @@
                                                                     method="post" enctype="multipart/form-data">
                                                                     <input type="hidden" name="id" id="edit-id" value="<?=$slide['id'];?>">
                                                                     <div class="input-group input-group-outline mb-3">
-                                                                        <!-- <label class="form-label">Profile</label> -->
                                                                         <input type="file" name="img" id="edit-img"
                                                                             class="form-control">
                                                                     </div>
                                                                     <div class="input-group input-group-outline mb-3">
-                                                                        <!-- <label class="form-label">Title</label> -->
                                                                         <input type="text" value='<?= $slide['title']; ?>'
                                                                             name="title" id="edit-name" class="form-control"
                                                                             placeholder="title">
@@ -310,8 +300,6 @@
                                             </div>
 
                                             <!-- ModelEnd -->
-
-
                                             <a type="button" href="<?= base_url('deleteSlide/' . $slide['id']); ?>"
                                                 onclick="return confirm('Are You Sure You want to delete');"
                                                 class="btn btn-primary px-3 py-2 mt-2 mb-0">Delete</a>
